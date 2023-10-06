@@ -80,7 +80,7 @@
             configuration = { ... }: {
               imports = modules
                 ++ [{ programs.home-manager.path = toString ./.; }];
-              nixpkgs = { inherit (pkgs) config overlays; };
+              _module.args.pkgs = lib.mkDefault pkgs;
             };
           });
       };
